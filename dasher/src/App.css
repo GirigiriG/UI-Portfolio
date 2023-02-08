@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #F5F5F5;
+  display: flex;
+}
+
+.sidebar {
+  background-color: #FFFFFF;
+  width: 80px;
+  height: 100vh;
+  border-right: 2px solid #cccccc55;
+}
+
+.dashboard {
+  width: 65vw;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard section,
+.stats {
+  margin-top: 50px;
+}
+
+.dashboard section {
+  width: 70%;
+  height: 100px;
+}
+
+.stats {
+  display: flex;
+}
+
+.stats h4 {
+  margin-bottom: 15px;
+}
+
+.stats p {
+  color: #9b9b9b;
+  font-size: .8em;
+  font-weight: bold;
+}
+.stats div:first-child {
+  width: 88%;
+}
+
+.filter select {
+  background-color: #e3e3e3;
+  padding: 0.4rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filter select:focus {
+  outline:none;
+}
+
+.dashboard .info {
+  display: flex;
+  width: 70%;
+}
+
+.dashboard .info-graph {
+  width: 8.8%;
+ height: 250px;
+}
+
+.bar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.info-graph .bar div:first-child,
+.info-graph .bar div:last-child {
+  border-radius: 8px;
+}
+
+.info-graph .bar div:first-child {
+  width: 20px;
+  height:70%;
+  margin-right: 2px;
+  background-color: #16161E;
+}
+
+.info-graph .bar div:last-child {
+  width: 25px;
+  height:50%;
+  background-color: #C6EFF8;
+}
+
+.info-graph .month {
+  margin-top: 5px;
+  color: rgba(0, 0, 0, 0.517);
+}
+
+ .price {
+  margin-top: 75px;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.price .content {
+  width: 47%;
+  height: 130px;
+  border-radius: 10px;
+}
+
+.play,
+.revenue {
+  display: flex;
+}
+
+.play .icon,
+.revenue .icon {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play .icon img,
+.revenue .icon img {
+  height: 30%;
+  width: 35%;
+}
+
+.play {
+  background-color: #C2FDA9;
+}
+
+.revenue {
+  background-color: #C6EFF8;
+}
+
+.content .content-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 70%;
+}
+
+.content .content-item p {
+  margin-bottom: 5px;
+}
