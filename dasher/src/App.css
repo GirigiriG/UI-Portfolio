@@ -5,7 +5,6 @@
 
 .container {
   width: 100vw;
-  height: 100vh;
   background-color: #F5F5F5;
   display: flex;
 }
@@ -13,13 +12,11 @@
 .sidebar {
   background-color: #FFFFFF;
   width: 80px;
-  height: 100vh;
   border-right: 2px solid #cccccc55;
 }
 
 .dashboard {
-  width: 65vw;
-  height: 100vh;
+  width: 70vw;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -27,7 +24,7 @@
 }
 
 .dashboard section,
-.stats {
+.dashboard .stats {
   margin-top: 50px;
 }
 
@@ -36,20 +33,20 @@
   height: 100px;
 }
 
-.stats {
+.dashboard .stats {
   display: flex;
 }
 
-.stats h4 {
+.dashboard .stats h4 {
   margin-bottom: 15px;
 }
 
-.stats p {
+.dashboard .stats p {
   color: #9b9b9b;
   font-size: .8em;
   font-weight: bold;
 }
-.stats div:first-child {
+.dashboard .stats div:first-child {
   width: 88%;
 }
 
@@ -157,4 +154,65 @@
 
 .content .content-item p {
   margin-bottom: 5px;
+}
+
+.team {
+  display: flex;
+  margin: 50px 0;
+  width: 70%;
+  justify-content: space-between;
+}
+
+.members h3 {
+  margin-bottom: 25px;
+}
+
+.team .members,
+.team .score {
+  padding: 2.5rem 1rem;
+  border: 2px solid #0000007d;
+  width: 42.5%;
+  border-radius: 8px;
+}
+
+.members .cards {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.members .cards .card {
+  display: flex;
+  height: 55px;
+  margin: 30px  auto;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #5757571b;
+}
+
+.members .cards .card .avatar {
+  width: 15%;
+  height: 55px;
+}
+
+.card .avatar img {  
+  width: 100%;
+  height: 100%;
+  border-radius: 200%;
+}
+
+.card .title {
+  width: 85%;
+  text-indent: 1rem;
+  padding-top: 5px;
+}
+
+.card .title h4 {
+  margin-bottom: 5px;
+}
+
+.card .title p { 
+  color: #0000005e;
+}
+
+.cards div:last-child {
+  border-bottom: none;
 }

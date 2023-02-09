@@ -104,7 +104,7 @@ function App() {
               <img src="/play.png" alt="play button icon"/>
             </div>
             <div className="content-item">
-              <p>Penjualan Kursus Pandapatan</p>
+              <p>Penjualan Kursus</p>
               <h3>18,000</h3>
             </div>
           </div>
@@ -120,7 +120,45 @@ function App() {
             </div>
           </div>
         </div>
-        
+        <div className="team">
+          <div className='members'>
+            <h3>Team anda</h3>
+            <div className='cards'>
+              <div className="card">
+                <div className="avatar">
+                  <img src="https://images.unsplash.com/photo-1577565177023-d0f29c354b69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="" />
+                </div>
+                <div className="title">
+                  <h4>Hatti Gill</h4>
+                  <p>Visual Designer</p>
+                </div>
+              </div>
+
+              <div className="card">
+                <div className="avatar">
+                  <img src="https://images.unsplash.com/photo-1577806934037-32d94e326e84?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80" alt="" />
+                </div>
+                <div className="title">
+                  <h4>Hope Brown</h4>
+                  <p>Market Researcher</p>
+                </div>
+              </div>
+
+              <div className="card">
+                <div className="avatar">
+                  <img src="https://images.unsplash.com/photo-1605369572399-05d8d64a0f6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="" />
+                </div>
+                <div className="title">
+                  <h4>Jessi Fuller</h4>
+                  <p>User Interface Desginer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='score'>
+            <h3>Kategori</h3>
+          </div>
+        </div>  
       </div>
       <div className='popular'></div>
     </div>
