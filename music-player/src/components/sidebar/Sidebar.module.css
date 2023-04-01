@@ -1,16 +1,17 @@
 .container {
-    width: 7%;
-    height: 100vh;
+    width: 12vw;
+    height: 95vh;
     background-color: #000000;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .sidebar_nav {
     font-weight: bold;
     font-size: .8rem;
     width: 90%;
-    height: 96vh;
+    height: 96%;
     color: #FFFFFF;
 }
 
@@ -58,8 +59,14 @@
 }
 
 .spacer {
-    width: 100%;
+    width: 90%;
     margin-top: 25px;
     height: 1px;
-    border-bottom: 1px solid #ffffff47;
+    border-bottom: 1px solid #64646499;
+}
+
+@media screen and (min-width: 1700px) { 
+    .container {
+        min-width: 12vw;
+    }
 }
