@@ -40,10 +40,16 @@
 
 .progress {
     width: 65%;
-    height: 12px;
+    height: 4px;
     display: flex;
     justify-content: center;
     accent-color: rgb(0, 200, 0);
+}
+
+input[type=range]::-webkit-slider-thumb {
+    width: 16px;
+    height: 16px;
+    color: red;
 }
 
 .shuffle,
@@ -71,6 +77,11 @@
 .next:hover,
 .repeat:hover   {
     cursor: pointer;
+}
+
+
+BiSkipPrevious:active {
+    color: #FFFFFF;
 }
 
 BiRepeat:hover {
