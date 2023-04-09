@@ -1,9 +1,8 @@
 .container {
-    width: 100%;
+    width: 98%;
     height: 50px;
     display: flex;
     padding-left: 10px;
-    padding-right: 10px;
     padding-top: 10px;
     justify-content: space-between;
 }
@@ -17,7 +16,7 @@
 }
 
 .directions {
-    width: 90px;
+    width: 85px;
 }
 
 .profile {

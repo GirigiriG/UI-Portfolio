@@ -1,11 +1,13 @@
 import React from "react";
+import MusicGroups from "../musicgroups/Musicgroups"
+import styles from "./Home.module.css";
 
 const Home = () => {
-   return(
-   <>
-      <h1>Home</h1>
-   </>
-   )
+   return (
+      <div className={styles.container}>
+         <MusicGroups></MusicGroups>
+      </div>
+   );
 };
 
 export default Home;

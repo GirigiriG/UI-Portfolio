@@ -34,8 +34,7 @@ const Topnav = () => {
                <IoMdArrowDropdown size={25} style={{ marginRight: "10px" }} />
             </div>
             <div className={styles.settings}>
-               {isSetting ? <Settings /> : null}
-               {/* <Settings></Settings> */}
+               {isSetting === true && <Settings />}
             </div>
          </div>
       </div>

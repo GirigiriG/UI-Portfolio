@@ -1,6 +1,6 @@
 .container {
-    width: 12vw;
-    height: 95vh;
+    width: 290px;
+    height: 92vh;
     background-color: #000000;
     display: flex;
     align-items: center;
@@ -67,6 +67,6 @@
 
 @media screen and (min-width: 1700px) { 
     .container {
-        min-width: 12vw;
+        min-width: 10vw;
     }
 }

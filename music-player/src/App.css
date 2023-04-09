@@ -6,15 +6,13 @@
 .container {
   width: 100vw;
   height: 100vh;
-}
-
-.player {
-  width: 100%;
-  height: 5vh;
-  border-top: 1px solid #55555599;
-  background-color: #51515112;
+  background-color: #141414;
 }
 
 .wrapper {
   display: flex;
+}
+
+.mainSection {
+  width: 100%;
 }
