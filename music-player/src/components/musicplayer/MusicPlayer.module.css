@@ -1,0 +1,70 @@
+.player {
+    width: 100%;
+    border-top: 1px solid #55555599;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7vh;
+ }
+
+.centersection {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+
+.leftsection,
+.rightsection {
+    display: flex;
+    width: 15%;
+}
+
+.leftsection {
+    justify-content: flex-start;
+    
+}
+.rightsection {
+    justify-content: flex-end;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    color: #a0a0a0;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.progress {
+    width: 65%;
+    height: 12px;
+    display: flex;
+    justify-content: center;
+    accent-color: rgb(0, 200, 0);
+}
+
+.shuffle,
+.previous,
+.play_pause,
+.next,
+.repeat {
+    height: 30px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.play_pause {
+    height: 40px;
+    width: 40px;
+    background-color: #FFFFFF;
+    border-radius: 200%;
+}
+
+BiRepeat:hover {
+    cursor: pointer;
+}
