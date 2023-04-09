@@ -32,7 +32,7 @@ const MusicPlayer = () => {
 
    const handleNextTrack = () => {
       setCurrentSong("night-sky.mp3");
-      console.log(currentSong);
+      handleIsPlaying();
    };
 
    return (
