@@ -1,12 +1,15 @@
 import React, { useRef, useState } from "react";
 import styles from "./MusicPlayer.module.css";
 
-import { BiShuffle } from "react-icons/bi";
-import { BiSkipPrevious } from "react-icons/bi";
-import { BiSkipNext } from "react-icons/bi";
-import { BiPlay } from "react-icons/bi";
-import { BiPause } from "react-icons/bi";
-import { BiRepeat } from "react-icons/bi";
+import {
+   BiShuffle,
+   BiSkipPrevious,
+   BiSkipNext,
+   BiPlay,
+   BiPause,
+   BiRepeat,
+} from "react-icons/bi";
+import { FiVolume1, FiVolume2 } from "react-icons/fi";
 
 const MusicPlayer = () => {
    const [isPlaying, setIsPlaying] = useState<Boolean>(true);
@@ -19,10 +22,15 @@ const MusicPlayer = () => {
    ]);
    const [trackIndex, setTrackIndex] = useState<number>(0);
    const [currentTime, setCurrentTime] = useState<any>(0);
+   const [volume, setVolume] = useState<number>(20);
    const [songDuration, setSongDuration] = useState<any>(0);
    const [repeatColor, setRepeatColor] = useState("a0a0a0");
 
    const audioElementRef = useRef<HTMLAudioElement>(null);
+
+   audioElementRef.current?.addEventListener("loadedmetadata", () => {
+      setSongDuration(audioElementRef.current?.duration);
+   });
 
    const handleIsPlaying = () => {
       setSongDuration(audioElementRef.current?.duration);
@@ -44,18 +52,15 @@ const MusicPlayer = () => {
       const currentIndex = trackIndex == tracks.length - 1 ? 0 : trackIndex + 1;
       setTrackIndex(currentIndex);
 
-      setSongDuration(audioElementRef.current?.duration);
       handlePlayPromise();
    };
 
    const handlePreviousTrack = () => {
-      setSongDuration(audioElementRef.current?.duration);
-
       const currentIndex = trackIndex == tracks.length - 1 ? 0 : trackIndex - 1;
-      console.log(currentIndex);
 
       if (currentIndex <= -1) {
          setTrackIndex(tracks.length - 1);
+
          handlePlayPromise();
          return;
       }
@@ -69,7 +74,6 @@ const MusicPlayer = () => {
 
       if (audioElementRef.current?.loop != undefined) {
          audioElementRef.current.loop = true;
-         // audioElementRef.current?.load();
          handlePlayPromise();
       }
    };
@@ -81,7 +85,6 @@ const MusicPlayer = () => {
             ?.then((_) => {
                audioElementRef.current?.pause();
                if (audioElementRef.current?.currentTime != undefined) {
-                  // audioElementRef.current.currentTime = 0;
                   audioElementRef.current?.play();
                }
             })
@@ -89,12 +92,21 @@ const MusicPlayer = () => {
       }
    };
 
-   const handleDrag = (event: React.ChangeEvent) => {
-      let input = event.target as HTMLInputElement
-      setCurrentTime(input.value);
+   const handleSeek = (event: React.ChangeEvent) => {
+      let target = event.target as HTMLInputElement;
+      setCurrentTime(target.value);
 
       if (audioElementRef.current?.currentTime != undefined) {
-         audioElementRef.current.currentTime = parseInt(input.value);
+         audioElementRef.current.currentTime = parseInt(target.value);
+      }
+   };
+
+   const handleVolume = (event: React.ChangeEvent) => {
+      let target = event.target as HTMLInputElement;
+      setVolume(parseInt(target.value));
+
+      if (audioElementRef.current?.volume != undefined) {
+         audioElementRef.current.volume = volume / 100;
       }
    };
 
@@ -147,18 +159,44 @@ const MusicPlayer = () => {
                </div>
             </div>
             <div className={styles.progress}>
+               <span>0:34</span>
                <input
                   type="range"
-                  className={styles.progress}
+                  className={styles.music_slider}
                   id="file"
                   value={currentTime}
                   min={0}
                   max={songDuration}
-                  onChange={handleDrag}
+                  onChange={handleSeek}
+               />
+               <span>2:20</span>
+            </div>
+         </div>
+         <div className={styles.rightsection}>
+            <div className={styles.volume}>
+               <div className={styles.volume_control}>
+                  {volume < 50 ? (
+                     <FiVolume1
+                        style={{ cursor: "poniter" }}
+                        size={20}
+                     ></FiVolume1>
+                  ) : (
+                     <FiVolume2
+                        style={{ cursor: "poniter" }}
+                        size={20}
+                     ></FiVolume2>
+                  )}
+               </div>
+               <input
+                  className={styles.volume_slider}
+                  type="range"
+                  onChange={handleVolume}
+                  value={volume}
+                  min={0}
+                  max={100}
                />
             </div>
          </div>
-         <div className={styles.rightsection}>Right</div>
       </div>
    );
 };

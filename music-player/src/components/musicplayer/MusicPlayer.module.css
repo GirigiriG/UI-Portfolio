@@ -19,7 +19,7 @@
 .leftsection,
 .rightsection {
     display: flex;
-    width: 15%;
+    width: 14%;
 }
 
 .leftsection {
@@ -33,23 +33,61 @@
 .controls {
     display: flex;
     justify-content: space-between;
-    color: #a0a0a0;
     margin-top: .5rem;
     margin-bottom: .5rem;
 }
 
+.leftsection,
+.controls, 
+.rightsection {
+    color: #bfbfbf;
+}
+
 .progress {
     width: 65%;
-    height: 4px;
+    height: 15px;
     display: flex;
     justify-content: center;
     accent-color: rgb(0, 200, 0);
+    color: #FFF;
 }
 
-input[type=range]::-webkit-slider-thumb {
-    width: 16px;
-    height: 16px;
-    color: red;
+.music_slider {
+    margin: 0 15px;
+    width: 100%;
+    height: 5px;
+    position: relative;
+    top: 5px;
+}
+
+.volume_slider {
+    width: 65%;
+    height: 5px;
+    display: flex;
+    justify-content: center;
+    accent-color: rgb(0, 200, 0);
+    color: #FFF;
+}
+
+span {
+    font-size: .7rem;
+    height: 5px;
+    /* background-color: #fff; */
+    display: flex;
+    align-items: flex-start;
+}
+
+.volume {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.volume_control {
+    margin-right: .5rem;
+    height: 100%;
 }
 
 .shuffle,
@@ -57,16 +95,17 @@ input[type=range]::-webkit-slider-thumb {
 .play_pause,
 .next,
 .repeat {
-    height: 30px; 
+    height: 25px; 
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 10px;
+    margin-bottom: 10px;
 }
 
 .play_pause {
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     background-color: #FFFFFF;
     border-radius: 200%;
 }
@@ -77,11 +116,6 @@ input[type=range]::-webkit-slider-thumb {
 .next:hover,
 .repeat:hover   {
     cursor: pointer;
-}
-
-
-BiSkipPrevious:active {
-    color: #FFFFFF;
 }
 
 BiRepeat:hover {
