@@ -45,7 +45,7 @@ const MusicPlayer = () => {
    const setAudioTime = (audio: React.RefObject<HTMLAudioElement>) => {
       setInterval(() => {
          setCurrentTime(audio.current?.currentTime);
-      }, 200);
+      }, 10);
    };
 
    const handleNextTrack = () => {
@@ -159,7 +159,7 @@ const MusicPlayer = () => {
                </div>
             </div>
             <div className={styles.progress}>
-               <span>0:34</span>
+            {/* <span>{(parseInt(Math.floor(currentTime).toPrecision(2)) / 60) * 100}</span> */}
                <input
                   type="range"
                   className={styles.music_slider}
@@ -169,7 +169,7 @@ const MusicPlayer = () => {
                   max={songDuration}
                   onChange={handleSeek}
                />
-               <span>2:20</span>
+               {/* <span>{(parseInt(Math.floor(songDuration).toPrecision(2)) / 60) * 100}</span> */}
             </div>
          </div>
          <div className={styles.rightsection}>
