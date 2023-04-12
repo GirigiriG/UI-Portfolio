@@ -43,7 +43,7 @@
 }
 
 .progress {
-    width: 65%;
+    width: 45%;
     height: 15px;
     display: flex;
     justify-content: center;
@@ -57,6 +57,7 @@
     height: 5px;
     position: relative;
     top: 5px;
+    outline: none;
 }
 
 .volume_slider {
@@ -65,13 +66,14 @@
     display: flex;
     justify-content: center;
     accent-color: rgb(0, 200, 0);
+    position: relative;
+    bottom: 2px;
     color: #FFF;
 }
 
 span {
     font-size: .7rem;
     height: 5px;
-    /* background-color: #fff; */
     display: flex;
     align-items: flex-start;
 }
