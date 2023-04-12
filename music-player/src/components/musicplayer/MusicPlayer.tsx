@@ -15,10 +15,8 @@ import { BsVolumeMute } from "react-icons/bs";
 const MusicPlayer = () => {
    const [isPlaying, setIsPlaying] = useState<Boolean>(true);
    const [tracks, _] = useState([
-      "Saucy_dog.mp3",
-      "evening.mp3",
-      "night-sky.mp3",
-      "Salyu.mp3",
+      "focus.mp3",
+      "world_end.mp3",
       "abandoned_house.mp3",
    ]);
    const [trackIndex, setTrackIndex] = useState<number>(0);
@@ -38,6 +36,13 @@ const MusicPlayer = () => {
 
    audioElementRef.current?.addEventListener("timeupdate", (event) => {
       calculatePlaytime();
+   });
+
+   audioElementRef.current?.addEventListener("ended", (event) => {
+      audioElementRef.current?.load();
+      if (audioElementRef.current?.currentTime != undefined) {
+         audioElementRef.current.currentTime = 0;
+      }
    });
 
    const calculatePlaytime = () => {
@@ -72,7 +77,6 @@ const MusicPlayer = () => {
       setSongDuration(audioElementRef.current?.duration);
       calculateSongDuration();
 
-
       isPlaying === true
          ? audioElementRef.current?.play()
          : audioElementRef.current?.pause();
@@ -83,13 +87,14 @@ const MusicPlayer = () => {
    const setAudioTime = () => {
       setInterval(() => {
          if (audioElementRef.current?.currentTime != undefined) {
-            setCurrentTime(audioElementRef.current.currentTime);
+            setCurrentTime(audioElementRef.current.currentTime - 1);
          }
-      }, 100);
+      }, 1000);
    };
 
    const handleNextTrack = () => {
       const currentIndex = trackIndex == tracks.length - 1 ? 0 : trackIndex + 1;
+
       setTrackIndex(currentIndex);
       setIsPlaying(false);
 
@@ -97,10 +102,12 @@ const MusicPlayer = () => {
    };
 
    const handlePreviousTrack = () => {
-      const currentIndex = trackIndex == tracks.length - 1 ? 0 : trackIndex - 1;
+      const currentIndex = trackIndex == 0 ? tracks.length - 1 : trackIndex - 1;
       setIsPlaying(false);
 
       if (currentIndex <= -1) {
+         console.log("got here");
+
          setTrackIndex(tracks.length - 1);
          setAudioTime();
          handlePlayPromise();
@@ -121,15 +128,17 @@ const MusicPlayer = () => {
    };
 
    const handlePlayPromise = async () => {
-      await audioElementRef.current?.play();
-
-      try {
-         // audioElementRef.current?.pause();
-         if (audioElementRef.current?.currentTime != undefined) {
-            audioElementRef.current?.play();
-         }
-      } catch (error) {
-         console.error("Error occured ", error);
+      audioElementRef.current?.load();
+      const playPromise = audioElementRef.current?.play();
+      if (playPromise != undefined) {
+         playPromise
+            ?.then((_) => {
+               audioElementRef.current?.pause();
+               if (audioElementRef.current?.currentTime != undefined) {
+                  audioElementRef.current?.play();
+               }
+            })
+            .catch((err) => console.error(`error loading the video ${err}`));
       }
    };
 
@@ -216,7 +225,6 @@ const MusicPlayer = () => {
             </div>
             <div className={styles.progress}>
                <span>{songStartTime}</span>
-               {/* <h2>{songDuration}</h2> */}
                <input
                   type="range"
                   className={styles.music_slider}
@@ -227,7 +235,6 @@ const MusicPlayer = () => {
                   onKeyDown={handleSpaceKeyPress}
                   onChange={handleSeek}
                />
-               {/* <h2>{currentTime}</h2> */}
                <span>{SongEndTime}</span>
             </div>
          </div>
